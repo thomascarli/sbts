@@ -1,12 +1,36 @@
 <head>
-  <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  <link type="text/css" rel="stylesheet" href="stylesheets/main.css" />
 </head>
-<video autoplay muted loop id="myVideo">
-  <source src="rain.mp4" type="video/mp4">
-</video>
+
+<div class="fullscreen-bg">
+    <video loop muted autoplay id='video' class="fullscreen-bg__video">
+      <source src="" type="video/mp4">
+    </video>
+</div>
 
 <div class="content">
-  <h1>Heading</h1>
-  <p>Lorem ipsum...</p>
-
+  <h1>Soggy By The Second</h1>
 </div>
+
+<script type="text/javascript">
+  var totalCount = 5;
+  function ChangeIt() {
+    var num = Math.ceil( Math.random() * totalCount );
+    var video = document.getElementById('video');
+    video.src = 'videos/'+num+'.mov';
+  }
+</script>
+
+<script type="text/javascript">
+  var max = 45000;
+  var min = 10000;
+  var range = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  ChangeIt();
+  window.setInterval(function(){
+    var max = 45000;
+    var min = 10000;
+    var range = Math.floor(Math.random() * (max - min + 1)) + min;
+    ChangeIt();
+  }, range);
+</script>
